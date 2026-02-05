@@ -1,0 +1,227 @@
+{
+    "name": "ScholarDeepResearch-Workforce",
+    "version": "1.1.0",
+    "workers": 22,
+    "agents": 528,
+    "tiers": 8,
+    "swarmType": "HierarchicalSwarm",
+    "efficiency": "arXiv:2601.14192v1",
+    "features": {
+        "auto_persistence": true,
+        "session_recovery": true,
+        "multi_database_search": true,
+        "critical_reading_methods": 10,
+        "citation_validation": true
+    },
+    "workers_registry": [
+        {
+            "id": "W01",
+            "name": "QueryClarificationWorker",
+            "tier": 1,
+            "agents": 24
+        },
+        {
+            "id": "W02",
+            "name": "DomainClassificationWorker",
+            "tier": 1,
+            "agents": 24
+        },
+        {
+            "id": "W03",
+            "name": "MultimodalProcessingWorker",
+            "tier": 1,
+            "agents": 24
+        },
+        {
+            "id": "W04",
+            "name": "SearchStrategyWorker",
+            "tier": 2,
+            "agents": 24
+        },
+        {
+            "id": "W05",
+            "name": "SourcePrioritizationWorker",
+            "tier": 2,
+            "agents": 24
+        },
+        {
+            "id": "W06",
+            "name": "AdvancedScholarSearchWorker",
+            "tier": 3,
+            "agents": 24
+        },
+        {
+            "id": "W07",
+            "name": "ArxivSearchWorker",
+            "tier": 3,
+            "agents": 24
+        },
+        {
+            "id": "W08",
+            "name": "BiomedicalSearchWorker",
+            "tier": 3,
+            "agents": 24
+        },
+        {
+            "id": "W21",
+            "name": "PatentWebSearchWorker",
+            "tier": 3,
+            "agents": 24
+        },
+        {
+            "id": "W09",
+            "name": "ContentExtractionWorker",
+            "tier": 4,
+            "agents": 24
+        },
+        {
+            "id": "W10",
+            "name": "DatasetProcessingWorker",
+            "tier": 4,
+            "agents": 24
+        },
+        {
+            "id": "W11",
+            "name": "SummarizeQuestionWorker",
+            "tier": 5,
+            "agents": 24
+        },
+        {
+            "id": "W12",
+            "name": "CriticalInquiryWorker",
+            "tier": 5,
+            "agents": 24
+        },
+        {
+            "id": "W13",
+            "name": "ContrastAnalysisWorker",
+            "tier": 5,
+            "agents": 24
+        },
+        {
+            "id": "W14",
+            "name": "StructureVisualizationWorker",
+            "tier": 5,
+            "agents": 24
+        },
+        {
+            "id": "W15",
+            "name": "DataAnalysisWorker",
+            "tier": 6,
+            "agents": 24
+        },
+        {
+            "id": "W16",
+            "name": "VisualizationWorker",
+            "tier": 6,
+            "agents": 24
+        },
+        {
+            "id": "W17",
+            "name": "FactCheckWorker",
+            "tier": 6,
+            "agents": 24
+        },
+        {
+            "id": "W18",
+            "name": "CitationValidationWorker",
+            "tier": 7,
+            "agents": 24
+        },
+        {
+            "id": "W19",
+            "name": "QualityAssuranceWorker",
+            "tier": 7,
+            "agents": 24
+        },
+        {
+            "id": "W20",
+            "name": "ReportGenerationWorker",
+            "tier": 8,
+            "agents": 24
+        },
+        {
+            "id": "W22",
+            "name": "EvolutionEfficiencyWorker",
+            "tier": 8,
+            "agents": 24
+        }
+    ],
+    "tier_config": {
+        "tier1": {
+            "workers": 3,
+            "parallel": true,
+            "blocking": false,
+            "auto_save": "phase-01-query.json"
+        },
+        "tier2": {
+            "workers": 2,
+            "parallel": true,
+            "blocking": false,
+            "auto_save": "phase-02-strategy.json"
+        },
+        "tier3": {
+            "workers": 4,
+            "parallel": true,
+            "blocking": false,
+            "auto_save": "phase-03-search.json"
+        },
+        "tier4": {
+            "workers": 2,
+            "parallel": true,
+            "blocking": false,
+            "auto_save": "phase-04-extraction.json"
+        },
+        "tier5": {
+            "workers": 4,
+            "parallel": true,
+            "blocking": false,
+            "auto_save": "phase-05-reading.json"
+        },
+        "tier6": {
+            "workers": 3,
+            "parallel": true,
+            "blocking": false,
+            "auto_save": "phase-06-analysis.json"
+        },
+        "tier7": {
+            "workers": 2,
+            "parallel": true,
+            "blocking": true,
+            "auto_save": "phase-07-validation.json"
+        },
+        "tier8": {
+            "workers": 2,
+            "parallel": true,
+            "blocking": false,
+            "auto_save": "phase-08-report.json"
+        }
+    },
+    "persistence": {
+        "enabled": true,
+        "storage_path": "Context-Layer/Second-Brain/Memory/PhaseOutputs/",
+        "session_path": "Context-Layer/Second-Brain/Memory/Sessions/",
+        "config_file": "Context-Layer/Second-Brain/Memory/auto-persistence-config.json"
+    },
+    "quality_gates": {
+        "source_diversity": {
+            "threshold": 3,
+            "unit": "databases"
+        },
+        "fulltext_coverage": {
+            "threshold": 0.80
+        },
+        "citation_validity": {
+            "threshold": 1.00
+        },
+        "eo_score": {
+            "threshold": 0.85
+        }
+    },
+    "context_layer": {
+        "knowledge_base": "Context-Layer/Knowledge-Base/",
+        "second_brain": "Context-Layer/Second-Brain/",
+        "research_integration": "Context-Layer/Research-Integration/",
+        "retrieval": "Context-Layer/Retrieval/"
+    }
+}

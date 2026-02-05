@@ -1,0 +1,141 @@
+{
+    "version": "2.3.3",
+    "context_bindings": {
+        "tier1": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md",
+                "USER.md"
+            ],
+            "playbooks": [
+                "PB-001",
+                "PB-002",
+                "PB-008"
+            ],
+            "skills": [
+                "SK-001",
+                "SK-003"
+            ],
+            "commands": [
+                "memory-search",
+                "memory-write",
+                "recall"
+            ]
+        },
+        "tier2": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "TOOLS.md"
+            ],
+            "playbooks": [
+                "PB-001",
+                "PB-004"
+            ],
+            "skills": [
+                "SK-001",
+                "SK-002",
+                "SK-003"
+            ],
+            "commands": [
+                "research-commands",
+                "memory-write"
+            ]
+        },
+        "tier3": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md"
+            ],
+            "playbooks": [
+                "PB-003",
+                "PB-005",
+                "PB-006",
+                "PB-007",
+                "PB-008"
+            ],
+            "skills": [
+                "SK-004",
+                "SK-005",
+                "SK-006",
+                "SK-007",
+                "SK-008"
+            ],
+            "experience": [
+                "EXP-001",
+                "EXP-002",
+                "EXP-003",
+                "EXP-004"
+            ],
+            "commands": [
+                "memory-search",
+                "memory-write",
+                "recall"
+            ]
+        },
+        "tier4": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md"
+            ],
+            "playbooks": [
+                "PB-002",
+                "PB-008"
+            ],
+            "skills": [
+                "SK-009",
+                "SK-010"
+            ],
+            "commands": [
+                "memory-search",
+                "memory-get"
+            ]
+        },
+        "tier5": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md"
+            ],
+            "playbooks": [
+                "PB-002"
+            ],
+            "skills": [
+                "SK-010"
+            ],
+            "commands": [
+                "memory-search",
+                "list-memory"
+            ]
+        },
+        "tier6": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md",
+                "USER.md"
+            ],
+            "playbooks": [
+                "PB-007"
+            ],
+            "skills": [
+                "SK-008"
+            ],
+            "commands": [
+                "memory-write",
+                "save-all",
+                "compact"
+            ]
+        }
+    },
+    "worker_overrides": {
+        "W14": {
+            "additional_playbooks": [
+                "PB-001"
+            ],
+            "role": "aggregator"
+        }
+    }
+}

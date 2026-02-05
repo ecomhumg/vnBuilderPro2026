@@ -1,0 +1,71 @@
+{
+    "phase": "02-strategy",
+    "timestamp": "2026-01-31T13:22:00+07:00",
+    "tier": 2,
+    "workers": [
+        "SearchStrategy",
+        "SourcePrioritization"
+    ],
+    "search_strategy": {
+        "approach": "Multi-source academic and web synthesis",
+        "queries": [
+            {
+                "id": 1,
+                "query": "LLM reasoning capabilities 2025 survey research advances chain-of-thought o1 R1",
+                "purpose": "Core survey papers on reasoning advances"
+            },
+            {
+                "id": 2,
+                "query": "arXiv LLM reasoning 2025 survey paper systematic review System 2 thinking deliberate reasoning",
+                "purpose": "Academic surveys on System 2 paradigm"
+            },
+            {
+                "id": 3,
+                "query": "LLM reasoning benchmark evaluation 2025 GPQA AIME mathematical reasoning coding",
+                "purpose": "Benchmark and evaluation research"
+            },
+            {
+                "id": 4,
+                "query": "DeepSeek R1 technical paper reinforcement learning reasoning without SFT 2025",
+                "purpose": "Technical deep-dive on frontier models"
+            }
+        ]
+    },
+    "source_prioritization": {
+        "priority_1": {
+            "name": "arXiv Preprints",
+            "weight": 0.35,
+            "reason": "Primary source for cutting-edge ML research"
+        },
+        "priority_2": {
+            "name": "Conference Proceedings (NeurIPS, ICML, ACL)",
+            "weight": 0.25,
+            "reason": "Peer-reviewed state-of-the-art"
+        },
+        "priority_3": {
+            "name": "Technical Blogs & Reports",
+            "weight": 0.20,
+            "reason": "Industry insights (OpenAI, DeepSeek, Anthropic)"
+        },
+        "priority_4": {
+            "name": "Hugging Face / GitHub",
+            "weight": 0.10,
+            "reason": "Open-source implementations"
+        },
+        "priority_5": {
+            "name": "Benchmark Leaderboards",
+            "weight": 0.10,
+            "reason": "Performance validation"
+        }
+    },
+    "expected_coverage": {
+        "themes": [
+            "System 1 → System 2 paradigm shift",
+            "Frontier reasoning models (o1, o3, R1, Claude 3.7)",
+            "Training methodologies (RLVR, pure RL)",
+            "Reasoning architectures (CoT, ToT, GoT, Latent CoT)",
+            "Benchmark evaluations (AIME, GPQA, HumanEval)",
+            "Open-source ecosystem impact"
+        ]
+    }
+}

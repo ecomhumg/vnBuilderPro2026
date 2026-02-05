@@ -1,0 +1,41 @@
+{
+    "phase": "01-query",
+    "timestamp": "2026-01-31T13:20:00+07:00",
+    "tier": 1,
+    "workers": [
+        "QueryClarification",
+        "DomainClassification",
+        "MultimodalProcessing"
+    ],
+    "query": {
+        "original": "Tổng quan các nghiên cứu chính về khả năng suy luận của LLM năm 2025",
+        "translated": "Overview of major research on LLM reasoning capabilities in 2025",
+        "clarified": "Comprehensive survey of 2025 research on Large Language Model (LLM) reasoning capabilities, including System 2 thinking paradigms, frontier reasoning models (o1, R1), training methodologies, and benchmark evaluations",
+        "language": "vi",
+        "output_language": "vi"
+    },
+    "domain_classification": {
+        "primary_domain": "Artificial Intelligence / Machine Learning",
+        "sub_domains": [
+            "Natural Language Processing",
+            "Large Language Models",
+            "Reasoning & Problem Solving",
+            "Reinforcement Learning"
+        ],
+        "keywords": [
+            "LLM reasoning",
+            "System 2 thinking",
+            "Chain-of-Thought",
+            "DeepSeek R1",
+            "OpenAI o1",
+            "RLVR",
+            "Mathematical reasoning",
+            "Benchmark evaluation"
+        ]
+    },
+    "scope": {
+        "temporal": "2025",
+        "focus": "Research papers, surveys, and technical reports",
+        "depth": "Deep - Comprehensive synthesis with critical analysis"
+    }
+}

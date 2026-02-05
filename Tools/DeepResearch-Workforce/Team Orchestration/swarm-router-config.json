@@ -1,0 +1,182 @@
+{
+    "workforce": "DeepResearch-Workforce",
+    "version": "2.1.0",
+    "topology": "HierarchicalSwarm",
+    "governance": "L3-DelegatedAutonomy",
+    "efficiency": "arXiv:2601.14192v1",
+    "routing": {
+        "default_flow": "sequential_tiers",
+        "parallel_within_tier": true,
+        "quality_gates": {
+            "tier_1_exit": {
+                "type": "metric_threshold",
+                "metric": "query_confidence",
+                "threshold": 0.8
+            },
+            "tier_2_exit": {
+                "type": "human_approval",
+                "artifact": "protocol.md"
+            },
+            "tier_3_exit": {
+                "type": "metric_threshold",
+                "metric": "source_coverage",
+                "threshold": 3
+            },
+            "w21_exit": {
+                "type": "completeness",
+                "artifact": "efficiency_spec",
+                "required": true
+            },
+            "tier_4_exit": {
+                "type": "metric_threshold",
+                "metric": "verification_score",
+                "threshold": 0.95
+            },
+            "tier_6_exit": {
+                "type": "metric_threshold",
+                "metric": "synthesis_coherence",
+                "threshold": 0.85
+            },
+            "tier_7_exit": {
+                "type": "metric_threshold",
+                "metric": "eo_score",
+                "threshold": 0.85
+            },
+            "w22_exit": {
+                "type": "pareto_validation",
+                "required": false
+            }
+        }
+    },
+    "tiers": [
+        {
+            "id": 1,
+            "name": "Research & Intelligence",
+            "workers": [
+                "01-QueryClarifierWorker",
+                "02-DomainIntelligenceWorker",
+                "03-TechnologyScanWorker"
+            ],
+            "execution": "parallel"
+        },
+        {
+            "id": 2,
+            "name": "Requirements Engineering",
+            "workers": [
+                "04-ResearchProtocolWorker",
+                "05-SourceStrategyWorker"
+            ],
+            "execution": "sequential",
+            "gate": "human_approval"
+        },
+        {
+            "id": 3,
+            "name": "Search & Acquisition",
+            "workers": [
+                "06-AcademicSearchWorker",
+                "07-TechnicalSearchWorker",
+                "08-WebSearchWorker",
+                "21-EfficiencyArchitectWorker"
+            ],
+            "execution": "parallel",
+            "efficiency_worker": "21-EfficiencyArchitectWorker"
+        },
+        {
+            "id": 4,
+            "name": "Verification & Validation",
+            "workers": [
+                "09-FactCheckWorker",
+                "10-SourceValidationWorker"
+            ],
+            "execution": "parallel"
+        },
+        {
+            "id": 5,
+            "name": "Data Extraction",
+            "workers": [
+                "11-ContentExtractionWorker",
+                "12-CitationMappingWorker",
+                "13-EvidenceGradingWorker"
+            ],
+            "execution": "parallel"
+        },
+        {
+            "id": 6,
+            "name": "Synthesis & Analysis",
+            "workers": [
+                "14-ResearchSynthesizerWorker",
+                "15-PatternIdentificationWorker",
+                "16-GapAnalysisWorker"
+            ],
+            "execution": "parallel"
+        },
+        {
+            "id": 7,
+            "name": "Quality & Validation",
+            "workers": [
+                "17-QualityAssuranceWorker",
+                "18-BiasDetectionWorker"
+            ],
+            "execution": "parallel",
+            "gate": "eo_quality"
+        },
+        {
+            "id": 8,
+            "name": "Documentation & Evolution",
+            "workers": [
+                "19-ReportGeneratorWorker",
+                "20-EvolutionEngineWorker",
+                "22-CostBudgetOptimizationWorker"
+            ],
+            "execution": "sequential",
+            "efficiency_worker": "22-CostBudgetOptimizationWorker"
+        }
+    ],
+    "efficiency_routing": {
+        "w21": {
+            "trigger": "tier_3_start",
+            "scope": [
+                "memory",
+                "tools",
+                "planning"
+            ],
+            "output_keys": [
+                "efficiency.memory.*",
+                "efficiency.tools.*",
+                "efficiency.planning.*"
+            ]
+        },
+        "w22": {
+            "trigger": "tier_8_end",
+            "scope": [
+                "cost",
+                "pareto",
+                "benchmarks"
+            ],
+            "output_keys": [
+                "efficiency.tokens",
+                "efficiency.cost",
+                "efficiency.pareto"
+            ]
+        }
+    },
+    "user_agent_mapping": {
+        "query-clarifier": "01-QueryClarifierWorker",
+        "academic-researcher": "06-AcademicSearchWorker",
+        "technical-researcher": "07-TechnicalSearchWorker",
+        "fact-checker": "09-FactCheckWorker",
+        "research-synthesizer": "14-ResearchSynthesizerWorker",
+        "report-generator": "19-ReportGeneratorWorker"
+    },
+    "error_handling": {
+        "retry_policy": {
+            "max_attempts": 3,
+            "backoff": "exponential"
+        },
+        "fallback": "escalate_to_human",
+        "circuit_breaker": {
+            "failure_threshold": 5,
+            "recovery_timeout": 60
+        }
+    }
+}

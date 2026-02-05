@@ -1,0 +1,128 @@
+{
+    "version": "1.0.0",
+    "description": "Parallel execution configuration for L5 autonomous workforce",
+    "enabled": true,
+    "max_concurrent_workers": 6,
+    "parallel_tiers": {
+        "2": {
+            "name": "Intelligence",
+            "workers": [
+                "W05",
+                "W06",
+                "W07",
+                "W08"
+            ],
+            "mode": "parallel",
+            "synchronization": "async",
+            "aggregation": "merge_all",
+            "timeout_seconds": 1800,
+            "retry_on_failure": true,
+            "max_retries": 2
+        },
+        "3": {
+            "name": "Content Creation",
+            "workers": [
+                "W09",
+                "W10",
+                "W11",
+                "W12",
+                "W13"
+            ],
+            "mode": "parallel",
+            "synchronization": "barrier",
+            "aggregator_worker": "W14",
+            "timeout_seconds": 3600,
+            "retry_on_failure": true,
+            "max_retries": 2,
+            "conflict_resolution": "priority_merge"
+        },
+        "4": {
+            "name": "Analysis",
+            "workers": [
+                "W15",
+                "W16",
+                "W17",
+                "W18"
+            ],
+            "mode": "parallel",
+            "synchronization": "async",
+            "aggregation": "merge_all",
+            "timeout_seconds": 2400,
+            "retry_on_failure": true,
+            "max_retries": 2
+        }
+    },
+    "sequential_tiers": {
+        "1": {
+            "name": "Strategy",
+            "workers": [
+                "W01",
+                "W02",
+                "W03",
+                "W04"
+            ],
+            "mode": "sequential",
+            "chain_type": "dependency"
+        },
+        "5": {
+            "name": "Validation",
+            "workers": [
+                "W19",
+                "W20"
+            ],
+            "mode": "sequential",
+            "chain_type": "gate"
+        },
+        "6": {
+            "name": "Synthesis",
+            "workers": [
+                "W21",
+                "W22"
+            ],
+            "mode": "sequential",
+            "chain_type": "final"
+        }
+    },
+    "conflict_resolution": {
+        "default_strategy": "priority_merge",
+        "strategies": {
+            "priority_merge": {
+                "priority_factors": {
+                    "tier_weight": 10,
+                    "worker_order_weight": 1,
+                    "confidence_weight": 5
+                }
+            },
+            "latest_wins": {
+                "timestamp_key": "updated_at"
+            },
+            "consensus": {
+                "threshold": 0.66,
+                "fallback": "priority_merge"
+            }
+        }
+    },
+    "load_balancing": {
+        "enabled": true,
+        "algorithm": "complexity_weighted",
+        "worker_capacities": {
+            "default": 100,
+            "W14": 80,
+            "W21": 80,
+            "W22": 80
+        },
+        "rebalance_interval_seconds": 60
+    },
+    "health_checks": {
+        "enabled": true,
+        "interval_seconds": 30,
+        "timeout_seconds": 5,
+        "failure_threshold": 3,
+        "recovery_threshold": 2
+    },
+    "resource_limits": {
+        "max_memory_per_worker_mb": 2048,
+        "max_concurrent_api_calls": 10,
+        "thread_pool_size": 16
+    }
+}

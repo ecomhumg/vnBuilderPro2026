@@ -1,0 +1,79 @@
+{
+    "phase": "phase-02-strategy",
+    "timestamp": "2026-01-31T12:40:00+07:00",
+    "workforce": "ScholarDeepResearch-Workforce v1.1.0",
+    "research_topic": "AI in Education: Comprehensive Deep Research (2024-2026)",
+    "search_strategy": {
+        "primary_databases": [
+            {
+                "name": "Google Scholar",
+                "priority": 1,
+                "query": "AI education learning outcomes meta-analysis 2024-2026"
+            },
+            {
+                "name": "arXiv",
+                "priority": 2,
+                "query": "cs.AI cs.CL intelligent tutoring adaptive learning"
+            },
+            {
+                "name": "ERIC",
+                "priority": 3,
+                "query": "artificial intelligence K-12 higher education effectiveness"
+            },
+            {
+                "name": "PubMed/PMC",
+                "priority": 4,
+                "query": "AI medical education learning analytics"
+            },
+            {
+                "name": "Semantic Scholar",
+                "priority": 5,
+                "query": "generative AI education critical thinking ChatGPT"
+            }
+        ],
+        "secondary_sources": [
+            "ACL Anthology (NLP in Education)",
+            "IEEE Xplore (Educational Technology)",
+            "ResearchGate",
+            "MDPI Education Sciences",
+            "Brookings Institution",
+            "US Department of Education (ed.gov)",
+            "UNICEF EdTech"
+        ],
+        "query_templates": {
+            "its_effectiveness": "intelligent tutoring systems effectiveness meta-analysis STEM mathematics 2024",
+            "genai_impact": "generative AI ChatGPT education critical thinking student learning 2024 2025",
+            "learning_analytics": "learning analytics early warning systems dropout prediction machine learning education",
+            "adaptive_learning": "adaptive learning personalized education effect size academic achievement",
+            "ethics_privacy": "AI education ethics algorithmic bias student data privacy FERPA GDPR 2024",
+            "assessment": "AI assessment education automated grading feedback authentic assessment"
+        }
+    },
+    "source_prioritization": {
+        "tier_1_academic": [
+            "arXiv",
+            "ACL Anthology",
+            "IEEE",
+            "ERIC",
+            "Semantic Scholar"
+        ],
+        "tier_2_institutional": [
+            "Brookings",
+            "US DoE",
+            "UNICEF",
+            "UNESCO",
+            "OECD"
+        ],
+        "tier_3_industry": [
+            "Carnegie Learning",
+            "Coursera",
+            "Khan Academy",
+            "Duolingo"
+        ]
+    },
+    "quality_metrics": {
+        "source_diversity": 5,
+        "strategy_completeness": 0.97,
+        "coverage_estimate": 0.94
+    }
+}

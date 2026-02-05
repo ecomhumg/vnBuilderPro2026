@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vnbuilderpro.dev/schemas/indexing-config-v2.2.0.json",
+    "version": "2.2.0",
+    "name": "Memory Indexing Configuration",
+    "description": "Chunking, embedding, and indexing settings for CLAWDBOT memory pipeline",
+    "watcher": {
+        "enabled": true,
+        "watchPaths": [
+            "MEMORY.md",
+            "DailyLogs/*.md",
+            "../Brain/**/*.md"
+        ],
+        "ignorePatterns": [
+            "*.tmp",
+            "*.bak",
+            ".git/**"
+        ],
+        "debounceMs": 500,
+        "description": "File watcher detects changes and triggers re-indexing"
+    },
+    "chunking": {
+        "strategy": "semantic",
+        "chunkSize": 400,
+        "chunkUnit": "characters",
+        "overlapPercentage": 80,
+        "overlapCharacters": 320,
+        "preserveMarkdownStructure": true,
+        "splitBoundaries": [
+            "## ",
+            "### ",
+            "---",
+            "\n\n"
+        ],
+        "minChunkSize": 100,
+        "maxChunkSize": 600,
+        "description": "~400 chunks with 80% overlap for optimal context preservation"
+    },
+    "embedding": {
+        "provider": "openai",
+        "model": "text-embedding-ada-002",
+        "dimensions": 1536,
+        "batchSize": 100,
+        "fallback": {
+            "provider": "local",
+            "model": "sentence-transformers/all-mpnet-base-v2",
+            "dimensions": 768
+        },
+        "caching": {
+            "enabled": true,
+            "cachePath": "Pipeline/.embedding-cache",
+            "ttlDays": 30
+        }
+    },
+    "storage": {
+        "type": "sqlite",
+        "database": "memory-index.db",
+        "vectorExtension": {
+            "name": "sqlite-vec",
+            "tableName": "memory_vectors",
+            "indexType": "ivfflat"
+        },
+        "textExtension": {
+            "name": "FTS5",
+            "tableName": "memory_fts",
+            "tokenizer": "porter unicode61"
+        },
+        "metadata": {
+            "tableName": "memory_metadata",
+            "fields": [
+                "source_file",
+                "chunk_index",
+                "created_at",
+                "layer"
+            ]
+        }
+    },
+    "search": {
+        "mode": "hybrid",
+        "vectorWeight": 0.6,
+        "bm25Weight": 0.4,
+        "reranking": {
+            "enabled": true,
+            "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+            "topK": 20
+        },
+        "maxResults": 50,
+        "minScore": 0.5,
+        "highlightMatches": true
+    },
+    "updatePolicy": {
+        "incrementalUpdate": true,
+        "fullReindexTrigger": "config_change",
+        "concurrentReads": true,
+        "writeLock": true
+    }
+}

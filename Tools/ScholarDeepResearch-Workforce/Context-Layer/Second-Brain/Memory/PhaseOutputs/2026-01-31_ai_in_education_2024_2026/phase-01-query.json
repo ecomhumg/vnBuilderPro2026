@@ -1,0 +1,74 @@
+{
+    "phase": "phase-01-query",
+    "timestamp": "2026-01-31T12:40:00+07:00",
+    "workforce": "ScholarDeepResearch-Workforce v1.1.0",
+    "research_topic": "AI in Education: Comprehensive Deep Research (2024-2026)",
+    "mode": "Deep",
+    "query_clarification": {
+        "primary_question": "What is the current state, effectiveness, and impact of AI applications in education across K-12 and higher education settings (2024-2026)?",
+        "sub_questions": [
+            "How effective are Intelligent Tutoring Systems (ITS) in improving learning outcomes?",
+            "What impact does Generative AI (ChatGPT, Claude) have on student learning and critical thinking?",
+            "How accurate are AI-powered learning analytics and early warning systems for dropout prediction?",
+            "What are the ethical considerations: algorithmic bias, data privacy, FERPA/GDPR compliance?",
+            "How do adaptive learning platforms personalize education at scale?",
+            "What challenges and opportunities exist for AI integration in STEM education?"
+        ],
+        "scope": {
+            "temporal": "2024-01-01 to 2026-01-31",
+            "domains": [
+                "cs.AI",
+                "cs.CL",
+                "Education Technology",
+                "Learning Sciences"
+            ],
+            "education_levels": [
+                "K-12",
+                "Higher Education",
+                "Professional Development"
+            ],
+            "ai_categories": [
+                "ITS",
+                "Adaptive Learning",
+                "GenAI",
+                "Learning Analytics",
+                "Chatbots"
+            ]
+        }
+    },
+    "domain_classification": {
+        "primary_domain": "Educational Technology (EdTech)",
+        "secondary_domains": [
+            "Artificial Intelligence",
+            "Learning Sciences",
+            "Cognitive Science",
+            "Data Analytics"
+        ],
+        "keywords": [
+            "Intelligent Tutoring Systems",
+            "ITS",
+            "Adaptive Learning",
+            "Generative AI",
+            "ChatGPT",
+            "Learning Analytics",
+            "Early Warning Systems",
+            "Dropout Prediction",
+            "STEM Education",
+            "Personalized Learning",
+            "Cognitive Tutors",
+            "Student Engagement",
+            "Critical Thinking",
+            "Algorithmic Bias",
+            "Data Privacy",
+            "FERPA",
+            "GDPR",
+            "AI Ethics",
+            "Assessment"
+        ]
+    },
+    "quality_metrics": {
+        "query_clarity": 0.96,
+        "domain_coverage": 0.95,
+        "temporal_precision": 1.0
+    }
+}

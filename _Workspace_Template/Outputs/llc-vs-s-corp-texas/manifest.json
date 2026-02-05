@@ -1,0 +1,47 @@
+{
+    "sessionId": "2026-02-05-061500",
+    "topic": "LLC vs S-Corp in Texas: Which is Right for You?",
+    "primaryKeyword": "llc vs s corp texas",
+    "generatedAt": "2026-02-05T06:15:00+07:00",
+    "qualityScore": 92,
+    "wordCount": 3200,
+    "deliverables": [
+        {
+            "name": "Content Brief",
+            "file": "content-brief.md",
+            "type": "markdown"
+        },
+        {
+            "name": "Article Body",
+            "file": "article.md",
+            "type": "markdown"
+        },
+        {
+            "name": "Meta Pack",
+            "file": "meta-pack.md",
+            "type": "markdown"
+        },
+        {
+            "name": "Link Map",
+            "file": "link-map.md",
+            "type": "markdown"
+        },
+        {
+            "name": "Image Plan",
+            "file": "image-plan.md",
+            "type": "markdown"
+        },
+        {
+            "name": "JSON-LD Schema",
+            "file": "schema-jsonld.json",
+            "type": "json"
+        }
+    ],
+    "sources": [
+        "https://www.sdocpa.com/s-corp-vs-llc-texas-business-guide/",
+        "https://slatonfs.com/scorp-vs-llc-tax-savings-texas/",
+        "https://comptroller.texas.gov/taxes/franchise/",
+        "https://www.sos.texas.gov/corp/forms_702.shtml",
+        "https://www.irs.gov/forms-pubs/about-form-2553"
+    ]
+}

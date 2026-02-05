@@ -1,0 +1,114 @@
+{
+    "version": "2.3.3",
+    "workforce": "SEO-AEO-GEO-EEAT-BlogWriter",
+    "standard": "CLAWDBOT v2.3.2",
+    "layers": {
+        "layer_1": {
+            "name": "DailyLogs",
+            "path": "DailyLogs/",
+            "format": "YYYY-MM-DD.md",
+            "retention": "30 days",
+            "purpose": "Ephemeral session logs"
+        },
+        "layer_2": {
+            "name": "CuratedMemory",
+            "path": "MEMORY.md",
+            "retention": "permanent",
+            "purpose": "Curated knowledge, decisions, patterns"
+        },
+        "layer_3": {
+            "name": "ExecutionLogs",
+            "path": "ExecutionLogs/",
+            "format": "[SESSION-ID].json",
+            "retention": "90 days",
+            "purpose": "Full execution context for session resumption"
+        },
+        "layer_4": {
+            "name": "ContextSnapshots",
+            "path": "ContextSnapshots/",
+            "format": "[SESSION-ID]/phase-N.json",
+            "retention": "30 days",
+            "purpose": "Phase-level memory snapshots"
+        },
+        "layer_5": {
+            "name": "Learning",
+            "path": "Learning/",
+            "retention": "permanent",
+            "purpose": "Self-learning patterns, metrics, evolution"
+        }
+    },
+    "pipeline": {
+        "indexing": {
+            "config": "Pipeline/indexing-config.json",
+            "method": "Vector + BM25",
+            "embedding_model": "text-embedding-3-small",
+            "update_frequency": "on_write"
+        },
+        "compaction": {
+            "config": "Pipeline/compaction-config.json",
+            "threshold": "100KB",
+            "schedule": "weekly",
+            "min_occurrences_to_elevate": 3
+        },
+        "pruning": {
+            "config": "Pipeline/pruning-config.json",
+            "retention_policy": "30 days for Layer 1, 90 days for Layer 3",
+            "preserve_elevated": true
+        }
+    },
+    "commands": {
+        "memory-search": {
+            "path": "../Command/memory-search.md",
+            "method": "Semantic search across layers"
+        },
+        "memory-get": {
+            "path": "../Command/memory-get.md",
+            "method": "Read specific content"
+        },
+        "memory-write": {
+            "path": "../Command/memory-write.md",
+            "method": "Write/update memory"
+        },
+        "recall": {
+            "path": "../Command/recall.md",
+            "method": "Quick memory retrieval"
+        },
+        "compact": {
+            "path": "../Command/compact.md",
+            "method": "Compress and optimize"
+        },
+        "list-memory": {
+            "path": "../Command/list-memory.md",
+            "method": "List memory entries"
+        },
+        "save-context": {
+            "path": "../Command/save-context.md",
+            "method": "Save execution context"
+        },
+        "load-context": {
+            "path": "../Command/load-context.md",
+            "method": "Restore execution context"
+        },
+        "evolution-tracker": {
+            "path": "../Command/evolution-tracker.md",
+            "method": "Track learning evolution"
+        }
+    },
+    "categories": {
+        "seo": "SEO optimization patterns",
+        "aeo": "Answer Engine Optimization patterns",
+        "geo": "Generative Engine Optimization patterns",
+        "eeat": "E-E-A-T compliance signals",
+        "content": "Content generation learnings",
+        "client": "Client-specific preferences",
+        "patterns": "Extracted successful patterns",
+        "evolution": "Quality improvement trends",
+        "feedback": "User/system feedback data"
+    },
+    "auto_save": {
+        "enabled": true,
+        "output_path": "../../Outputs/",
+        "context_on_phase_complete": true,
+        "learning_on_delivery": true
+    }
+}

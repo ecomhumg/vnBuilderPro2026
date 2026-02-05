@@ -1,0 +1,185 @@
+{
+    "swarm_type": "HierarchicalSwarm",
+    "version": "2.3.2",
+    "workforce": "{WorkforceName}-Workforce",
+    "standard": "vnBuilderProMax v2.3.2",
+    "efficiencyEnhanced": true,
+    "arxivReference": "arXiv:2601.14192v1",
+    "tier_count": 6,
+    "total_workers": 22,
+    "total_agents": 528,
+    "routing": {
+        "default_route": "tier_sequential",
+        "parallel_within_tier": true,
+        "quality_gates": [
+            "tier_5"
+        ]
+    },
+    "tiers": [
+        {
+            "tier": 1,
+            "name": "Strategy",
+            "workers": [
+                "W01",
+                "W02",
+                "W03",
+                "W04"
+            ],
+            "parallel": false,
+            "execution_mode": "sequential"
+        },
+        {
+            "tier": 2,
+            "name": "Intelligence",
+            "workers": [
+                "W05",
+                "W06",
+                "W07",
+                "W08"
+            ],
+            "parallel": true,
+            "execution_mode": "full_parallel"
+        },
+        {
+            "tier": 3,
+            "name": "Content",
+            "workers": [
+                "W09",
+                "W10",
+                "W11",
+                "W12",
+                "W13",
+                "W14"
+            ],
+            "parallel": true,
+            "execution_mode": "partial_parallel",
+            "aggregator": "W14"
+        },
+        {
+            "tier": 4,
+            "name": "Analysis",
+            "workers": [
+                "W15",
+                "W16",
+                "W17",
+                "W18"
+            ],
+            "parallel": true,
+            "execution_mode": "barrier_sync"
+        },
+        {
+            "tier": 5,
+            "name": "Validation",
+            "workers": [
+                "W19",
+                "W20"
+            ],
+            "parallel": false,
+            "quality_gate": true,
+            "threshold": 0.85,
+            "execution_mode": "sequential"
+        },
+        {
+            "tier": 6,
+            "name": "Synthesis",
+            "workers": [
+                "W21",
+                "W22"
+            ],
+            "parallel": false,
+            "execution_mode": "sequential"
+        }
+    ],
+    "context_injection": {
+        "enabled": true,
+        "config_path": "Team Orchestration/context-injection-config.json",
+        "template_path": "Context-Layer/context-injection-config-TEMPLATE.json",
+        "bootstrap_enabled": true,
+        "phase_0_required": true
+    },
+    "timeouts": {
+        "worker_timeout_ms": 30000,
+        "tier_timeout_ms": 120000,
+        "total_timeout_ms": 600000
+    },
+    "error_handling": {
+        "retry_count": 2,
+        "backoff_multiplier": 1.5,
+        "fallback": "human_escalation"
+    },
+    "auto_persistence": {
+        "enabled": true,
+        "version": "2.3.2",
+        "storage_path": "Context-Layer/Second-Brain/Memory/PhaseOutputs",
+        "session_naming": {
+            "format": "{date}_{topic_slug}",
+            "max_length": 50,
+            "sanitize": true
+        },
+        "phase_outputs": {
+            "save_on_tier_complete": true,
+            "include_memory_keys": true,
+            "include_quality_score": true
+        },
+        "session_metadata": {
+            "create_on_complete": true,
+            "include_duration": true,
+            "include_efficiency": true
+        }
+    },
+    "autonomous_execution": {
+        "enabled": true,
+        "version": "2.3.2",
+        "autonomy_level": "L5",
+        "zero_human_loop": true,
+        "autonomous_core_path": "Autonomous-Core/",
+        "parallel_config_path": "Team Orchestration/parallel-execution-config.json",
+        "routing_policy_path": "Team Orchestration/autonomous-routing-policy.md",
+        "feedback_config_path": "Team Orchestration/feedback-loop-config.md",
+        "context_injection_path": "Team Orchestration/context-injection-config.json",
+        "decision_making": {
+            "goal_driven": true,
+            "constraint_satisfaction": true,
+            "auto_recovery": true
+        },
+        "parallel_execution": {
+            "enabled": true,
+            "parallel_tiers": [
+                2,
+                3,
+                4
+            ],
+            "synchronization": "barrier",
+            "conflict_resolution": "priority_merge"
+        },
+        "self_improvement": {
+            "enabled": true,
+            "feedback_loop": "active",
+            "ab_testing": true,
+            "auto_deploy": true
+        },
+        "emergency_override": {
+            "critical_failure_threshold": 3,
+            "quality_collapse_threshold": 0.50,
+            "resource_exhaustion_threshold": 0.90,
+            "infinite_loop_detection": 5
+        }
+    },
+    "coremodules": {
+        "enabled": true,
+        "modules": [
+            "MemoryStore",
+            "ContextBuilder",
+            "SkillsLoader",
+            "AgentLoop",
+            "SubagentManager"
+        ],
+        "initialization_order": [
+            "ContextBuilder",
+            "SkillsLoader",
+            "MemoryStore",
+            "AgentLoop",
+            "SubagentManager"
+        ]
+    }
+}

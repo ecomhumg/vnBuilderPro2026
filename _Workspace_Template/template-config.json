@@ -1,0 +1,55 @@
+{
+    "template": {
+        "name": "_Workspace_Template",
+        "version": "2.3.4",
+        "base_template": "SEO-AEO-GEO-EEAT-BlogWriter",
+        "standard": "vnBuilderProMax",
+        "created_at": "2026-02-05",
+        "topology": "6-Tier HierarchicalSwarm",
+        "workers": 22,
+        "agents_per_worker": 24,
+        "total_agents": 528,
+        "autonomy_level": "L5_FULL_AUTO"
+    },
+    "placeholders": {
+        "{{WORKFORCE_NAME}}": {
+            "description": "Workforce name (required)",
+            "example": "DataAnalytics-Workforce",
+            "required": true
+        },
+        "{{DOMAIN}}": {
+            "description": "Domain/topic area",
+            "example": "FinancialRiskAnalysis",
+            "required": true
+        },
+        "{{ORGANIZATION}}": {
+            "description": "Target organization",
+            "example": "EnterpriseGlobal_MAS",
+            "required": false
+        },
+        "{{OUTPUT_DIR}}": {
+            "description": "Output directory for generated workforce",
+            "default": "D:\\BuilderPro\\Workforce2026",
+            "required": false
+        }
+    },
+    "files_to_customize": [
+        "Team Orchestration/team-manifest.json",
+        "Team Orchestration/WORKFLOW.md",
+        "Context-Layer/Second-Brain/bootstrap/IDENTITY.md",
+        "Context-Layer/Second-Brain/bootstrap/SOUL.md",
+        "Context-Layer/Second-Brain/bootstrap/USER.md"
+    ],
+    "directories": {
+        "Autonomous-Core": "L5 Autonomous Engine (9 files)",
+        "Context-Layer/CoreModules": "Nanobot-pattern modules (6 files)",
+        "Context-Layer/Knowledge-Base": "EXPERIENCE, PLAYBOOKS, SKILLS",
+        "Context-Layer/Second-Brain": "bootstrap, Command, Memory",
+        "Team Orchestration": "Swarm coordination (12 files)",
+        "Workers": "6-Tier hierarchy (22 workers)"
+    },
+    "usage": {
+        "command": "/vnBuilderProMax --template _Workspace_Template --name {{WORKFORCE_NAME}} --domain {{DOMAIN}}",
+        "output": "{{OUTPUT_DIR}}/{{WORKFORCE_NAME}}-Workforce/"
+    }
+}

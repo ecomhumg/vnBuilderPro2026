@@ -1,0 +1,101 @@
+{
+    "version": "1.0.0",
+    "description": "ScholarDeepResearch-Workforce Research Integration Configuration",
+    "triggers": {
+        "academic_search": {
+            "enabled": true,
+            "research_agents": [
+                "advanced-scholar-search",
+                "arxiv-search",
+                "biomedical-search"
+            ],
+            "pre_execution": true,
+            "validation": true
+        },
+        "critical_reading": {
+            "enabled": true,
+            "research_agents": [
+                "summarize-question",
+                "critical-inquiry",
+                "contrast-analysis"
+            ],
+            "method_selection": "auto"
+        },
+        "citation_validation": {
+            "enabled": true,
+            "research_agents": [
+                "citation-validator",
+                "fact-checker"
+            ],
+            "threshold": 1.0
+        }
+    },
+    "agent_mapping": {
+        "query-clarifier": {
+            "worker": "W01-QueryClarificationWorker",
+            "tier": 1,
+            "tools": []
+        },
+        "advanced-scholar-search": {
+            "worker": "W06-AdvancedScholarSearchWorker",
+            "tier": 3,
+            "tools": [
+                "advancedScholarSearch",
+                "scholarSearch"
+            ]
+        },
+        "arxiv-search": {
+            "worker": "W07-ArxivSearchWorker",
+            "tier": 3,
+            "tools": [
+                "arxivSearch",
+                "arxivFulltext"
+            ]
+        },
+        "biomedical-search": {
+            "worker": "W08-BiomedicalSearchWorker",
+            "tier": 3,
+            "tools": [
+                "searchPubMed",
+                "pubmedFulltext",
+                "biorxivSearch",
+                "biorxivFulltext"
+            ]
+        },
+        "content-extractor": {
+            "worker": "W09-ContentExtractionWorker",
+            "tier": 4,
+            "tools": [
+                "extractUrl"
+            ]
+        },
+        "fact-checker": {
+            "worker": "W17-FactCheckWorker",
+            "tier": 6,
+            "tools": []
+        },
+        "citation-validator": {
+            "worker": "W18-CitationValidationWorker",
+            "tier": 7,
+            "tools": []
+        },
+        "report-generator": {
+            "worker": "W20-ReportGenerationWorker",
+            "tier": 8,
+            "tools": [
+                "image_generation"
+            ]
+        }
+    },
+    "quality_gates": {
+        "source_diversity": 3,
+        "citation_validity": 1.0,
+        "eo_score": 0.85,
+        "summary_min_words": 50
+    },
+    "output_targets": {
+        "reports": "../Second-Brain/Memory/Reports/",
+        "sessions": "../Second-Brain/Memory/Sessions/",
+        "cache": "../Retrieval/cache/"
+    }
+}

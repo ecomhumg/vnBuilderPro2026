@@ -1,0 +1,13 @@
+{
+    "version": "1.0.0",
+    "workforce": "MASDesign-Workforce",
+    "patterns": [
+        {
+            "category": "swarm",
+            "name": "HierarchicalSwarm",
+            "usage_count": 0,
+            "success_rate": 0.0,
+            "notes": "8-tier hierarchical topology"
+        }
+    ]
+}

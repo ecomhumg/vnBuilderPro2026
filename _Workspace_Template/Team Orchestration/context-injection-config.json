@@ -1,0 +1,173 @@
+{
+    "version": "2.3.3",
+    "context_bindings": {
+        "tier1": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md",
+                "USER.md"
+            ],
+            "playbooks": [
+                "PB-001",
+                "PB-002",
+                "PB-008"
+            ],
+            "skills": [
+                "SK-001",
+                "SK-003"
+            ],
+            "experience": [],
+            "commands": [
+                "memory-search",
+                "memory-write",
+                "recall"
+            ]
+        },
+        "tier2": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "TOOLS.md"
+            ],
+            "playbooks": [
+                "PB-001",
+                "PB-004"
+            ],
+            "skills": [
+                "SK-001",
+                "SK-002",
+                "SK-003"
+            ],
+            "experience": [],
+            "commands": [
+                "research-commands",
+                "memory-write"
+            ]
+        },
+        "tier3": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md"
+            ],
+            "playbooks": [
+                "PB-003",
+                "PB-005",
+                "PB-006",
+                "PB-007",
+                "PB-008"
+            ],
+            "skills": [
+                "SK-004",
+                "SK-005",
+                "SK-006",
+                "SK-007",
+                "SK-008"
+            ],
+            "experience": [
+                "EXP-*"
+            ],
+            "experience_access": "read_all",
+            "commands": [
+                "memory-search",
+                "memory-write",
+                "recall"
+            ]
+        },
+        "tier4": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md"
+            ],
+            "playbooks": [
+                "PB-002",
+                "PB-008"
+            ],
+            "skills": [
+                "SK-009",
+                "SK-010"
+            ],
+            "experience": [],
+            "commands": [
+                "memory-search",
+                "memory-get"
+            ]
+        },
+        "tier5": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md"
+            ],
+            "playbooks": [
+                "PB-002"
+            ],
+            "skills": [
+                "SK-010"
+            ],
+            "experience": [],
+            "commands": [
+                "memory-search",
+                "list-memory"
+            ]
+        },
+        "tier6": {
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md",
+                "USER.md"
+            ],
+            "playbooks": [
+                "PB-007"
+            ],
+            "skills": [
+                "SK-008"
+            ],
+            "experience": [
+                "EXP-*"
+            ],
+            "experience_access": "read_write",
+            "commands": [
+                "memory-write",
+                "save-all",
+                "compact"
+            ]
+        }
+    },
+    "worker_overrides": {
+        "W14": {
+            "additional_playbooks": [
+                "PB-001"
+            ],
+            "role": "aggregator"
+        },
+        "W22": {
+            "experience_write": true,
+            "learning_trigger": true,
+            "role": "certification_and_learning"
+        }
+    },
+    "learning_pipeline": {
+        "enabled": true,
+        "trigger_worker": "W22",
+        "quality_threshold": 90,
+        "outputs_source": "../../../Outputs/",
+        "experience_target": "../Context-Layer/Knowledge-Base/EXPERIENCE/",
+        "auto_index": true,
+        "pattern_categories": [
+            "structure",
+            "seo",
+            "eeat",
+            "aeo",
+            "engagement",
+            "voice"
+        ]
+    },
+    "knowledge_base_loader": {
+        "index_file": "../Context-Layer/Knowledge-Base/knowledge-base-index.json",
+        "auto_discovery": true,
+        "cache_duration_minutes": 30
+    }
+}

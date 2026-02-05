@@ -1,0 +1,374 @@
+{
+    "version": "2.3.3",
+    "workforce": "{WorkforceName}-Workforce",
+    "bootstrap": {
+        "files": [
+            "Second-Brain/bootstrap/AGENTS.md",
+            "Second-Brain/bootstrap/SOUL.md",
+            "Second-Brain/bootstrap/USER.md",
+            "Second-Brain/bootstrap/TOOLS.md",
+            "Second-Brain/bootstrap/IDENTITY.md"
+        ],
+        "required": true
+    },
+    "tier_bindings": {
+        "tier_1": {
+            "name": "Strategy",
+            "execution_mode": "sequential",
+            "workers": [
+                "W01",
+                "W02",
+                "W03",
+                "W04"
+            ],
+            "playbooks": [
+                "{PB-001}",
+                "{PB-002}"
+            ],
+            "skills": [
+                "{SK-001}",
+                "{SK-002}"
+            ],
+            "commands": [
+                "memory-search",
+                "memory-write",
+                "recall"
+            ],
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "USER.md"
+            ]
+        },
+        "tier_2": {
+            "name": "Intelligence",
+            "execution_mode": "full_parallel",
+            "timeout": "30min",
+            "workers": [
+                "W05",
+                "W06",
+                "W07",
+                "W08"
+            ],
+            "playbooks": [
+                "{PB-003}",
+                "{PB-004}"
+            ],
+            "skills": [
+                "{SK-001}",
+                "{SK-002}",
+                "{SK-003}",
+                "{SK-004}"
+            ],
+            "commands": [
+                "search",
+                "memory-search",
+                "recall"
+            ],
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md"
+            ]
+        },
+        "tier_3": {
+            "name": "Content",
+            "execution_mode": "partial_parallel",
+            "aggregator": "W14",
+            "timeout": "60min",
+            "workers": [
+                "W09",
+                "W10",
+                "W11",
+                "W12",
+                "W13",
+                "W14"
+            ],
+            "playbooks": [
+                "{PB-001}",
+                "{PB-002}",
+                "{PB-003}",
+                "{PB-005}",
+                "{PB-006}"
+            ],
+            "skills": [
+                "{SK-001}",
+                "{SK-002}",
+                "{SK-003}",
+                "{SK-004}",
+                "{SK-005}",
+                "{SK-006}",
+                "{SK-007}"
+            ],
+            "commands": [
+                "memory-write",
+                "recall",
+                "save-all"
+            ],
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "TOOLS.md"
+            ]
+        },
+        "tier_4": {
+            "name": "Analysis",
+            "execution_mode": "barrier_sync",
+            "timeout": "30min",
+            "workers": [
+                "W15",
+                "W16",
+                "W17",
+                "W18"
+            ],
+            "playbooks": [
+                "{PB-006}",
+                "{PB-007}"
+            ],
+            "skills": [
+                "{SK-003}",
+                "{SK-005}",
+                "{SK-008}"
+            ],
+            "commands": [
+                "memory-search",
+                "recall",
+                "list-memory"
+            ],
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md"
+            ]
+        },
+        "tier_5": {
+            "name": "Validation",
+            "execution_mode": "sequential",
+            "workers": [
+                "W19",
+                "W20"
+            ],
+            "playbooks": [
+                "{PB-007}",
+                "{PB-008}"
+            ],
+            "skills": [
+                "{SK-004}",
+                "{SK-005}",
+                "{SK-006}"
+            ],
+            "commands": [
+                "memory-search",
+                "recall"
+            ],
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md"
+            ]
+        },
+        "tier_6": {
+            "name": "Synthesis",
+            "execution_mode": "sequential",
+            "workers": [
+                "W21",
+                "W22"
+            ],
+            "playbooks": [
+                "{PB-005}",
+                "{PB-006}",
+                "{PB-007}"
+            ],
+            "skills": [
+                "{SK-007}",
+                "{SK-008}"
+            ],
+            "commands": [
+                "save-all",
+                "compact",
+                "memory-write"
+            ],
+            "bootstrap": [
+                "AGENTS.md",
+                "SOUL.md",
+                "IDENTITY.md"
+            ]
+        }
+    },
+    "worker_context_map": {
+        "W01": {
+            "role": "standard",
+            "primary_playbook": "{PB-001}",
+            "skills": [
+                "{SK-001}",
+                "{SK-002}"
+            ]
+        },
+        "W02": {
+            "role": "standard",
+            "primary_playbook": "{PB-001}",
+            "skills": [
+                "{SK-001}",
+                "{SK-002}"
+            ]
+        },
+        "W03": {
+            "role": "standard",
+            "primary_playbook": "{PB-002}",
+            "skills": [
+                "{SK-001}",
+                "{SK-002}"
+            ]
+        },
+        "W04": {
+            "role": "standard",
+            "primary_playbook": "{PB-002}",
+            "skills": [
+                "{SK-001}",
+                "{SK-002}"
+            ]
+        },
+        "W05": {
+            "role": "standard",
+            "primary_playbook": "{PB-003}",
+            "skills": [
+                "{SK-002}",
+                "{SK-003}"
+            ]
+        },
+        "W06": {
+            "role": "standard",
+            "primary_playbook": "{PB-003}",
+            "skills": [
+                "{SK-004}",
+                "{SK-005}"
+            ]
+        },
+        "W07": {
+            "role": "standard",
+            "primary_playbook": "{PB-004}",
+            "skills": [
+                "{SK-001}",
+                "{SK-003}"
+            ]
+        },
+        "W08": {
+            "role": "standard",
+            "primary_playbook": "{PB-003}",
+            "skills": [
+                "{SK-002}",
+                "{SK-004}"
+            ]
+        },
+        "W09": {
+            "role": "standard",
+            "primary_playbook": "{PB-002}",
+            "skills": [
+                "{SK-002}",
+                "{SK-006}"
+            ]
+        },
+        "W10": {
+            "role": "standard",
+            "primary_playbook": "{PB-002}",
+            "skills": [
+                "{SK-006}",
+                "{SK-007}"
+            ]
+        },
+        "W11": {
+            "role": "standard",
+            "primary_playbook": "{PB-002}",
+            "skills": [
+                "{SK-001}",
+                "{SK-002}"
+            ]
+        },
+        "W12": {
+            "role": "standard",
+            "primary_playbook": "{PB-003}",
+            "skills": [
+                "{SK-003}",
+                "{SK-006}"
+            ]
+        },
+        "W13": {
+            "role": "standard",
+            "primary_playbook": "{PB-005}",
+            "skills": [
+                "{SK-005}",
+                "{SK-007}"
+            ]
+        },
+        "W14": {
+            "role": "aggregator",
+            "primary_playbook": "{PB-006}",
+            "skills": [
+                "{SK-001}",
+                "{SK-005}",
+                "{SK-007}"
+            ]
+        },
+        "W15": {
+            "role": "standard",
+            "primary_playbook": "{PB-006}",
+            "skills": [
+                "{SK-003}",
+                "{SK-005}"
+            ]
+        },
+        "W16": {
+            "role": "standard",
+            "primary_playbook": "{PB-006}",
+            "skills": [
+                "{SK-004}",
+                "{SK-005}"
+            ]
+        },
+        "W17": {
+            "role": "standard",
+            "primary_playbook": "{PB-006}",
+            "skills": [
+                "{SK-004}",
+                "{SK-008}"
+            ]
+        },
+        "W18": {
+            "role": "standard",
+            "primary_playbook": "{PB-006}",
+            "skills": [
+                "{SK-003}",
+                "{SK-005}"
+            ]
+        },
+        "W19": {
+            "role": "standard",
+            "primary_playbook": "{PB-007}",
+            "skills": [
+                "{SK-005}",
+                "{SK-006}"
+            ]
+        },
+        "W20": {
+            "role": "standard",
+            "primary_playbook": "{PB-007}",
+            "skills": [
+                "{SK-005}",
+                "{SK-006}"
+            ]
+        },
+        "W21": {
+            "role": "synthesizer",
+            "primary_playbook": "{PB-005}",
+            "skills": [
+                "{SK-005}",
+                "{SK-007}"
+            ]
+        },
+        "W22": {
+            "role": "synthesizer",
+            "primary_playbook": "{PB-008}",
+            "skills": [
+                "{SK-005}",
+                "{SK-008}"
+            ]
+        }
+    }
+}

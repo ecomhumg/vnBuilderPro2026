@@ -1,0 +1,11 @@
+{
+    "gate_results":  {
+                         "G2_Intelligence":  "PASSED",
+                         "G6_Synthesis":  "PASSED",
+                         "G4_Analysis":  "PASSED",
+                         "G5_Validation":  "PASSED",
+                         "G3_Content":  "PASSED",
+                         "G1_Strategy":  "PASSED"
+                     },
+    "overall":  "ALL GATES PASSED"
+}

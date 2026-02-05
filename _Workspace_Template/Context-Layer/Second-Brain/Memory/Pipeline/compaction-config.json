@@ -1,0 +1,18 @@
+{
+    "version": "2.3.2",
+    "schedule": "daily",
+    "time": "00:00",
+    "rules": {
+        "min_occurrences": 3,
+        "similarity_threshold": 0.85,
+        "merge_strategy": "latest_wins"
+    },
+    "categories_to_compact": [
+        "seo",
+        "aeo",
+        "geo",
+        "eeat",
+        "content"
+    ],
+    "preserve_unique": true
+}

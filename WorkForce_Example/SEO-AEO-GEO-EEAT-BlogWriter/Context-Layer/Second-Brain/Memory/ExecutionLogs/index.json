@@ -1,0 +1,27 @@
+{
+    "version": "2.3.3",
+    "last_updated": "2026-02-05T06:15:00+07:00",
+    "sessions": [
+        {
+            "session_id": "2026-02-05-061500",
+            "timestamp": "2026-02-05T06:15:00+07:00",
+            "topic": "LLC vs S-Corp in Texas: Which is Right for You?",
+            "status": "completed",
+            "phases_completed": 9,
+            "deliverables_count": 7,
+            "quality_score": 92,
+            "mode": "full",
+            "path": "2026-02-05-061500.json"
+        },
+        {
+            "session_id": "2026-02-05-054900",
+            "timestamp": "2026-02-05T05:49:00+07:00",
+            "topic": "Texas Employment Law Guide for Small Businesses",
+            "status": "completed",
+            "phases_completed": 8,
+            "deliverables_count": 6,
+            "mode": "full",
+            "path": "2026-02-05-054900.json"
+        }
+    ]
+}

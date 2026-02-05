@@ -1,0 +1,181 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Article",
+            "@id": "https://[domain]/texas-employment-law-small-business-guide#article",
+            "headline": "Texas Employment Law Guide for Small Businesses (2025-2026)",
+            "description": "Expert guide to Texas employment law for Houston small businesses covering at-will employment, wage laws, TCHRA protections, workers' compensation, and 2025 compliance requirements.",
+            "datePublished": "2026-02-05",
+            "dateModified": "2026-02-05",
+            "author": {
+                "@type": "Organization",
+                "name": "[Publication Name]",
+                "url": "https://[domain]"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "[Publication Name]",
+                "url": "https://[domain]",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://[domain]/logo.png"
+                }
+            },
+            "reviewedBy": {
+                "@type": "Person",
+                "name": "Sarah Johnson",
+                "jobTitle": "Employment Attorney",
+                "description": "Texas Bar #87654321"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://[domain]/texas-employment-law-small-business-guide"
+            },
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://[domain]/images/texas-employment-law-guide-hero.jpg",
+                "width": 1200,
+                "height": 628
+            },
+            "articleSection": "Business Law",
+            "keywords": [
+                "texas employment law",
+                "small business compliance",
+                "houston employers",
+                "texas labor laws",
+                "employee rights texas",
+                "hiring regulations texas",
+                "workplace compliance houston"
+            ],
+            "wordCount": 3200,
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Texas Employment Law",
+                    "sameAs": "https://www.wikidata.org/wiki/Q7706890"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "At-will employment",
+                    "sameAs": "https://en.wikipedia.org/wiki/At-will_employment"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Workers' compensation",
+                    "sameAs": "https://en.wikipedia.org/wiki/Workers%27_compensation"
+                }
+            ],
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [
+                    ".tl-dr",
+                    ".key-takeaways",
+                    "h2"
+                ]
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "@id": "https://[domain]/texas-employment-law-small-business-guide#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Can I fire an employee for any reason in Texas?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, under at-will employment. However, you cannot fire for illegal reasons (discrimination, retaliation, refusing illegal acts). Document legitimate business reasons for all terminations."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How quickly must I pay an employee their final check?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Within 6 calendar days if you terminate them. If they quit, by the next regular payday. Failure to comply can result in TWC claims."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does my small business need workers' compensation insurance?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No—Texas is the only state where it's optional. However, non-subscribers face full legal liability in workplace injury lawsuits with no damage caps."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What workplace posters are required in Texas?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Both Texas state posters (minimum wage, unemployment, workers' comp notice) and federal posters (EEOC, FLSA, OSHA). Purchase an all-in-one 2026 poster for full compliance."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "When do Texas anti-discrimination laws apply to my business?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The Texas Commission on Human Rights Act (TCHRA) applies to employers with 15 or more employees. Smaller businesses still have federal FLSA and other obligations."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://[domain]/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Business Law",
+                    "item": "https://[domain]/business-law/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Texas Employment Law Guide",
+                    "item": "https://[domain]/texas-employment-law-small-business-guide"
+                }
+            ]
+        },
+        {
+            "@type": "HowTo",
+            "@id": "https://[domain]/texas-employment-law-small-business-guide#compliance-checklist",
+            "name": "Texas Employment Law Compliance Checklist",
+            "description": "Step-by-step checklist for Houston small businesses to ensure Texas employment law compliance",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "name": "Post Required Workplace Posters",
+                    "text": "Display all 2026 Texas state and federal workplace posters in conspicuous locations"
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Review At-Will Disclaimers",
+                    "text": "Ensure all offer letters and employee handbooks contain clear at-will employment disclaimers"
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Complete I-9 Verification",
+                    "text": "Verify all employees have properly completed I-9 forms within required timeframes"
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Audit Employee Classifications",
+                    "text": "Review W-2 vs 1099 classifications annually to ensure proper categorization"
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Verify Payroll Compliance",
+                    "text": "Confirm wage payment schedules meet Texas Payday Law requirements"
+                }
+            ]
+        }
+    ]
+}
